@@ -12,7 +12,7 @@ Containerized infrastructure built with [Docker](https://www.docker.com/) and [D
 
 ### Services
 
-The infrastructure consists of the following **services**:
+The infrastructure consists of the following **services**, each isolated in its own container:
 
 - **NGINX**  
   Handles HTTPS traffic and acts as the entry point of the infrastructure.
@@ -40,5 +40,13 @@ Two persistent volumes are used to store data:
 
 ## Resources
 
-- https://docs.docker.com/
-- https://courses.mooc.fi/org/uh-cs/courses/devops-with-docker
+### Documentation
+
+- [Docker Documentation](https://docs.docker.com/)
+- [Docker Compose Documentation](https://docs.docker.com/compose/)
+- [DevOps with Docker, University of Helsinki](https://courses.mooc.fi/org/uh-cs/courses/devops-with-docker)
+- [Nginx Documentation](https://nginx.org/en/docs/)
+
+### AI Usage
+
+AI (Clause) was used mainly for clarifying the concepts read in the documentation.
