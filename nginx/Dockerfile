@@ -3,6 +3,7 @@ FROM debian:12
 ARG DOMAIN_NAME=sgaspari.42.fr
 
 RUN apt-get update && apt-get install -y nginx openssl
+RUN rm -rf /var/lib/apt/lists/*
 
 EXPOSE 443
 
