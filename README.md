@@ -8,7 +8,7 @@ Containerized infrastructure built with [Docker](https://www.docker.com/).
 
 Diagram of the infrastructure:
 
-![Infrastructore diagram]('./assets/infrastructure-diagram.png)
+![Infrastructore diagram](./assets/infrastructure-diagram.png)
 
 
 ## Instructions
