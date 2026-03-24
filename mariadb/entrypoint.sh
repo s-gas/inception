@@ -19,7 +19,6 @@ if [ ! -f "$MARKER_FILE" ]; then
     mariadb -u root -S /var/run/mysqld/mysqld.sock -e "FLUSH PRIVILEGES;"
 
     touch "$MARKER_FILE"
-    echo "[MariaDB] Initialization complete"
 
     mysqladmin -u root -S /var/run/mysqld/mysqld.sock shutdown
     wait "$pid"
