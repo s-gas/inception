@@ -4,9 +4,16 @@ services:
     build: ./nginx/
     ports:
       - "1024:443"
+    volumes:
+      wordpress_data:/var/www/html
   wordpress:
     image: wordpress:1
     build: ./wordpress/
+    volumes:
+      wordpress_data:/var/www/html
   mariadb:
     image: mariadb:1
     build: ./mariadb/
+
+volumes:
+  wordpress_data;
