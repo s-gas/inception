@@ -46,6 +46,7 @@ Two persistent volumes are used to store data:
 - [Docker Compose Documentation](https://docs.docker.com/compose/)
 - [DevOps with Docker, University of Helsinki](https://courses.mooc.fi/org/uh-cs/courses/devops-with-docker)
 - [Nginx Documentation](https://nginx.org/en/docs/)
+- [MariaDB Documentation](https://mariadb.org/documentation/)
 
 ### AI Usage
 
