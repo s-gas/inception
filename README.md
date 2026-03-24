@@ -19,8 +19,7 @@ The infrastructure consists of the following **services**, each isolated in its 
   Configured to support **TLSv1.2** and **TLSv1.3**.
 
 - **WordPress + PHP-FPM**  
-  Runs the WordPress application and processe
-## Instructionss PHP requests.
+  Runs the WordPress application and processes PHP requests.
 
 - **MariaDB**  
   Provides the database used by WordPress.
@@ -33,7 +32,6 @@ Two persistent volumes are used to store data:
   Stores the MariaDB database data.
 
 - **wordpress_files**  
-## Instructions
   Stores the WordPress website files.
 
 ## Instructions
