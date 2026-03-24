@@ -6,4 +6,7 @@ RUN apt-get update && \
 
 EXPOSE 3306
 
-CMD ["mysqld", "--user=mysql"]
+COPY ./entrypoint.sh .
+RUN chmod +x entrypoint.sh
+
+CMD ["./entrypoint.sh"]
