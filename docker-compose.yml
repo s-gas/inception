@@ -7,23 +7,22 @@ services:
       - wordpress_data:/var/www/html
     depends_on:
       - wordpress
+    env_file:
+      - .env
 
   wordpress:
     build: ./wordpress
     volumes:
       - wordpress_data:/var/www/html
-    environment:
-      WORDPRESS_DB_HOST: mariadb:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpresspass
-      WORDPRESS_DB_NAME: wordpress
+    env_file:
+      - .env
     depends_on:
       - mariadb
 
   mariadb:
     build: ./mariadb
-    environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
+    env_file:
+      - .env
     volumes:
       - mariadb_data:/var/lib/mysql
 

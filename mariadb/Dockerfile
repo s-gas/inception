@@ -6,8 +6,6 @@ RUN apt-get update && \
 
 RUN mkdir -p /var/run/mysqld && chown -R mysql:mysql /var/run/mysqld
 
-COPY ./mariadb_init.sql /docker-entrypoint-initdb.d/
-
 EXPOSE 3306
 
 CMD ["mysqld", "--user=mysql"]
