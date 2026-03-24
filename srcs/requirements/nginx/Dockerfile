@@ -1,8 +1,6 @@
-FROM alpine:3.23
+FROM debian:12
 
-RUN apk add nginx
+RUN apt-get update
+RUN apt-get install nginx -y
 
-EXPOSE 80
-
-ENTRYPOINT [ "nginx" ]
-CMD [ "-g" , "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
