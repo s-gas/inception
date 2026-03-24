@@ -1,9 +1,18 @@
+secrets:
+  db_root_password:
+    file: ../secrets/db_root_password.txt
 services:
   nginx:
     image: nginx
     build: ./requirements/nginx
     container_name: nginx
+    env_file:
+      - .env
   mariadb:
     image: mariadb
     build: ./requirements/mariadb
     container_name: mariadb
+    env_file:
+      - .env
+    secrets:
+      - db_root_password

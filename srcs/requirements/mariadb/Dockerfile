@@ -4,7 +4,7 @@ WORKDIR /db
 
 RUN     apt-get update && apt-get install -y mariadb-server
 
-COPY    ./db_setup.sh .
+COPY    ./tools/db_setup.sh .
 
 RUN     chmod +x db_setup.sh
 
