@@ -1,0 +1,9 @@
+services:
+  nginx:
+    image: nginx:1
+    build: ./nginx/
+    ports:
+      - "1024:443"
+  mariadb:
+    image: mariadb:1
+    build: ./mariadb/
