@@ -1,19 +1,32 @@
 services:
   nginx:
-    image: nginx:1
-    build: ./nginx/
+    build: ./nginx
     ports:
       - "1024:443"
     volumes:
-      wordpress_data:/var/www/html
+      - wordpress_data:/var/www/html
+    depends_on:
+      - wordpress
+
   wordpress:
-    image: wordpress:1
-    build: ./wordpress/
+    build: ./wordpress
     volumes:
-      wordpress_data:/var/www/html
+      - wordpress_data:/var/www/html
+    environment:
+      WORDPRESS_DB_HOST: mariadb:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpresspass
+      WORDPRESS_DB_NAME: wordpress
+    depends_on:
+      - mariadb
+
   mariadb:
-    image: mariadb:1
-    build: ./mariadb/
+    image: mariadb:10.11
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpresspass
 
 volumes:
-  wordpress_data;
+  wordpress_data:
