@@ -23,5 +23,14 @@ if [ ! -f /var/www/html/wp-config.php ]; then
     echo "wp-config.php created"
 fi
 
+wp core install \
+    --path=/var/www/html \
+    --url="$DOMAIN_NAME" \
+    --title="Inception" \
+    --admin_user="admin" \
+    --admin_password="$DB_PASSWORD" \
+    --admin_email="admin@$DOMAIN_NAME" \
+    --allow-root
+
 echo "Container running ✅"
 exec php-fpm8.2 -F
