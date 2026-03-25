@@ -12,14 +12,16 @@ until mariadb -h mariadb -u "$DB_USER" -p"$DB_PASSWORD" -e "SELECT 1;" 2>/dev/nu
     sleep 2
 done
 
-wp config create \
-    --path=/var/www/html \
-    --dbname="$DB_NAME" \
-    --dbuser="$DB_USER" \
-    --dbpass="$DB_PASSWORD" \
-    --dbhost="$DB_HOST" \
-    --allow-root
-echo "wp-config.php created"
+if [ ! -f /var/www/html/wp-config.php ]; then
+    wp config create \
+        --path=/var/www/html \
+        --dbname="$DB_NAME" \
+        --dbuser="$DB_USER" \
+        --dbpass="$DB_PASSWORD" \
+        --dbhost="$DB_HOST" \
+        --allow-root
+    echo "wp-config.php created"
+fi
 
 echo "Container running ✅"
 exec php-fpm8.2 -F
