@@ -4,6 +4,8 @@ set -e
 MARKER_FILE="/var/lib/mysql/.db_initialized"
 
 if [ ! -f "$MARKER_FILE" ]; then
+    echo "marker_file does not exist"
+    echo "bootstrapping mariadb..."
     mariadb-install-db --user=mysql --ldata=/var/lib/mysql
 
     mysqld_safe --datadir=/var/lib/mysql &
@@ -22,6 +24,8 @@ if [ ! -f "$MARKER_FILE" ]; then
 
     mysqladmin -u root -S /var/run/mysqld/mysqld.sock shutdown
     wait "$pid"
+    echo "bootstrap completed"
 fi
 
+echo "mariadb container running"
 exec mysqld_safe --datadir=/var/lib/mysql --bind-address=0.0.0.0

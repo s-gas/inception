@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 cp -r /tmp/wordpress/* /var/www/html/
 rm -rf /tmp/wordpress/*
@@ -13,5 +14,7 @@ wp config create \
     --dbpass="$DB_PASSWORD" \
     --dbhost="$DB_HOST" \
     --allow-root
+echo "wp-config.php created"
 
+echo "wordpress container running"
 exec php-fpm8.2 -F
