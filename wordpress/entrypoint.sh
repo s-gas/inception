@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 cp -r /tmp/wordpress/* /var/www/html/
 rm -rf /tmp/wordpress/*
@@ -27,9 +26,9 @@ wp core install \
     --path=/var/www/html \
     --url="$DOMAIN_NAME" \
     --title="Inception" \
-    --admin_user="admin" \
+    --admin_user="mod" \
     --admin_password="$DB_PASSWORD" \
-    --admin_email="admin@$DOMAIN_NAME" \
+    --admin_email="mod@$DOMAIN_NAME" \
     --allow-root
 
 echo "Container running ✅"
