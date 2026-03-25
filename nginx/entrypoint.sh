@@ -10,5 +10,5 @@ echo "TLS certificate created"
 sed -i "s|SERVER_NAME|${DOMAIN_NAME}|g" /etc/nginx/conf.d/default.conf
 echo "server_name added to nginx.conf"
 
-echo "nginx container running"
+echo "Container running"
 exec nginx -g 'daemon off;'

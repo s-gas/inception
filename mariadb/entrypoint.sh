@@ -4,15 +4,16 @@ set -e
 MARKER_FILE="/var/lib/mysql/.db_initialized"
 
 if [ ! -f "$MARKER_FILE" ]; then
-    echo "marker_file does not exist"
-    echo "bootstrapping mariadb..."
+    echo "Marker file does not exist"
+    echo "Initializing mariadb..."
     mariadb-install-db --user=mysql --ldata=/var/lib/mysql
 
     mysqld_safe --datadir=/var/lib/mysql &
     pid="$!"
 
     while [ ! -S /var/run/mysqld/mysqld.sock ]; do
-        sleep 1
+        echo "Waiting for UNIX socket"
+        sleep 2
     done
 
     mariadb -u root -S /var/run/mysqld/mysqld.sock -e "CREATE DATABASE IF NOT EXISTS \`${DB_NAME}\`;"
@@ -24,8 +25,8 @@ if [ ! -f "$MARKER_FILE" ]; then
 
     mysqladmin -u root -S /var/run/mysqld/mysqld.sock shutdown
     wait "$pid"
-    echo "bootstrap completed"
+    echo "Initialization completed"
 fi
 
-echo "mariadb container running"
+echo "Container running ✅"
 exec mysqld_safe --datadir=/var/lib/mysql --bind-address=0.0.0.0

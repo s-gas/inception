@@ -1,7 +1,7 @@
 FROM debian:12
 
 RUN apt-get update && \
-    apt-get install -y php8.2-fpm php8.2-mysql wget unzip && \
+    apt-get install -y php8.2-fpm php8.2-mysql wget unzip mariadb-client && \
     rm -rf /var/lib/apt/lists/*
 
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
