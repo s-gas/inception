@@ -12,6 +12,7 @@ down:
 	docker compose -f $(FILE) down
 erase:
 	docker compose -f $(FILE) down -v
+	sudo rm -rf ~/data
 ps:
 	docker compose -f $(FILE) ps
 exec_mariadb:
