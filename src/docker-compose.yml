@@ -13,6 +13,8 @@ services:
     env_file:
       - .env
     restart: unless-stopped
+    networks:
+      - inception
 
   wordpress:
     build: ./requirements/wordpress
@@ -26,6 +28,8 @@ services:
     secrets:
       - password
     restart: unless-stopped
+    networks:
+      - inception
 
   mariadb:
     build: ./requirements/mariadb
@@ -37,6 +41,8 @@ services:
     volumes:
       - mariadb_data:/var/lib/mysql
     restart: unless-stopped
+    networks:
+      - inception
 
 volumes:
   mariadb_data:
@@ -52,7 +58,11 @@ volumes:
       type: none
       o: bind
       device: ~/data/wordpress
-    
+
+networks:
+  inception:
+    driver: bridge
+
 secrets:
   password:
     file: ../secrets/password.txt

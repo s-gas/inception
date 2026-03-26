@@ -32,7 +32,7 @@ Two persistent volumes are used to store data:
   Stores the MariaDB database data.
 
 - **wordpress_files**  
-  Stores the WordPress w need SSL/TLS certificates.ebsite files.
+  Stores the WordPress website files.
 
 ## Instructions
 
@@ -50,6 +50,7 @@ Change to the project directory:
 cd inception
 ```
 
+All sensitive credentials are stored as Docker secrets in the `secrets/` directory at the root of the repository. These files are not committed to Git.
 In order to run the containers, it is necessary to store the password for Wordpress and MariaDB in a file:
 
 ```bash
@@ -65,11 +66,13 @@ Run docker compose via the Makefile:
 make build
 ```
 
-Wait for Docker to build the images and run the containers, then you can paste this URL in the browser:
+Since the infrastructure runs entirely locally, it is not accessible from the public internet. Access is limited to the host machine via the loopback IP address 127.0.0.1. To access the site, navigate to:
 
 ```bash
-https://sgaspari.42.fr
+https://127.0.0.1
 ```
+
+The TLS certificate is self-signed, so your browser will show a security warning. This is expected, you can safely proceed past it.
 
 ## Resources
 
