@@ -4,7 +4,7 @@
 
 ## Description
 
-Containerized infrastructure built with **Docker** and **Docker Compose**.
+Containerized infrastructure built with **Docker** and **Docker Compose** with no pre-built images.
 
 ### Diagram of the infrastructure:
 
