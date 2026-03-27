@@ -18,13 +18,13 @@ flowchart TB
     E[(Volume)]
     F[(Volume)]
 
-    A <--->|443| B
+    A <-->|443| B
     B <-->|9000| C
     C <-->|3306| D
 
-    B <-----> E
-    C <---> E
-    D <---> F
+    B <----> E
+    C <--> E
+    D <--> F
 ```
 
 ### Services
