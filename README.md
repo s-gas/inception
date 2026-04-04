@@ -58,7 +58,7 @@ Two persistent volumes are used to store data:
 Clone this repository via the web URL or via SSH:
 
 ```bash
-git clone https://github.com/simone-gasparini-94/inception
+git clone https://github.com/s-gas/inception
 ```
 
 Change to the project directory:
