@@ -2,6 +2,8 @@
 
 # inception
 
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+
 Containerized infrastructure built with **Docker** and **Docker Compose** with no pre-built images.
 
 ### Services
